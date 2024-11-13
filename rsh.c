@@ -102,6 +102,7 @@ int main() {
 
     	if (isAllowed(line, &cmd, &offset) == 0) {
     		printf("NOT ALLOWED!\n");
+    		printf("..%s.. - ..%s.. - ..%d..", line, cmd, offset);
     		continue;
     	}
 
