@@ -67,8 +67,6 @@ int spawn(char *argv[]) {
 		return -1;
 	}
 
-	// printf("PID: %d", pid);
-
 	// Wait for the spawned process to terminate
 	if (waitpid(pid, &status, 0) == -1) {
 		perror("waitpid failed");
@@ -212,7 +210,7 @@ int main() {
 
     	if (strcmp(line, "help") == 0) {
     		printf("The allowed commands are:\n");
-    		printf("cp\ntouch\nmkdir\nls\npwd\ncat\ngrep\nchmod\ndiff\ncd\nexit\nhelp\n");
+    		printf("1: cp\n2: touch\n3: mkdir\n4: ls\n5: pwd\n6: cat\n7: grep\n8: chmod\n9: diff\n10: cd\n11: exit\n12: help\n");
     	}
 
     	if (strcmp(line, "exit") == 0) {
