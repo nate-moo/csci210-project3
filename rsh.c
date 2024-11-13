@@ -97,8 +97,8 @@ int main() {
 		line[strlen(line)-1]='\0';
 
     	int offset = 0;
-    	char* cmd = malloc(sizeof(char) * 256);
-    	char* argv[21] = {malloc(sizeof(char) * 256)};
+    	char* cmd = malloc(sizeof(char) * 512);
+    	char* argv[21] = {malloc(sizeof(char) * 512)};
 
     	if (isAllowed(line, &cmd, &offset) == 0) {
     		printf("NOT ALLOWED!\n");
