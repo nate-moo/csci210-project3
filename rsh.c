@@ -24,7 +24,7 @@ int isAllowed(char*cmd, char** cmdline, int* offset) {
 		for (int i = 0; i < strlen(cmd); i++) {
 			if (cmd[i] == ' ') {
 				done = 1;
-				memcpy(*cmdline, &cmd[0], i + 1);
+				memcpy(*cmdline, &cmd[0], i);
 				*offset = i + 1;
 				break;
 			}
@@ -33,16 +33,22 @@ int isAllowed(char*cmd, char** cmdline, int* offset) {
 		cmd[strlen(cmd) - 1] = '\0';
 	}
 
+	// if (cmd[strlen(cmd) - 1] != '\0') {
+	// 	cmd[strlen(cmd) - 1] = '\0';
+	// }
+
+	// *cmdline[strlen(*cmdline) - 1] = '\0';
+
 	if (done != 1) {
 		memcpy(*cmdline, &cmd[0], strlen(cmd));
 		*offset = -1;
 	}
 
 	// printf("%s", *cmdline);
-	*cmdline += '\0';
+	// *cmdline += '\0';
 
 	for (int i = 0; i < N; i++) {
-		if (!strcmp(allowed[i], *cmdline)) {
+		if (strcmp(allowed[i], *cmdline) == 0) {
 			return 1;
 		}
 	}
@@ -98,8 +104,30 @@ int main() {
 		line[strlen(line)-1]='\0';
 
     	int offset = 0;
-    	char* cmd = malloc(sizeof(char) * 512);
-    	char* argv[21] = {malloc(sizeof(char) * 512)};
+    	char* cmd = malloc(sizeof(char) * 256);
+    	char* argv[21] = {
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    		malloc(sizeof(char) * 256),
+    	};
 
     	if (isAllowed(line, &cmd, &offset) == 0) {
     		printf("NOT ALLOWED!\n");
