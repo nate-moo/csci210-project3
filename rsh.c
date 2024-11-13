@@ -24,7 +24,7 @@ int isAllowed(char*cmd, char** cmdline, int* offset) {
 		for (int i = 0; i < strlen(cmd); i++) {
 			if (cmd[i] == ' ') {
 				done = 1;
-				memcpy(*cmdline, &cmd[0], i);
+				memcpy(*cmdline, &cmd[0], i + 1);
 				*offset = i + 1;
 				break;
 			}
@@ -39,6 +39,7 @@ int isAllowed(char*cmd, char** cmdline, int* offset) {
 	}
 
 	// printf("%s", *cmdline);
+	*cmdline += '\0';
 
 	for (int i = 0; i < N; i++) {
 		if (!strcmp(allowed[i], *cmdline)) {
@@ -102,7 +103,6 @@ int main() {
 
     	if (isAllowed(line, &cmd, &offset) == 0) {
     		printf("NOT ALLOWED!\n");
-
     		continue;
     	}
 
