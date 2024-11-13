@@ -6,7 +6,5 @@ myspawn: myspawn.c
 
 @PHONY: clean
 
-all: rsh
-
 clean:
 	rm -f rsh
