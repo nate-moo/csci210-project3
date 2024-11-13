@@ -1,0 +1,5 @@
+*.dSYM
+.idea
+solution_executable
+myspawn
+rsh
