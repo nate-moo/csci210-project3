@@ -62,7 +62,7 @@ int spawn(char *argv[]) {
 	posix_spawnattr_init(&attr);
 
 	// Spawn a new process
-	if (posix_spawnp(&pid, "echo", NULL, &attr, argv, environ) != 0) {
+	if (posix_spawnp(&pid, argv[0], NULL, &attr, argv, environ) != 0) {
 		perror("spawn failed");
 		return -1;
 	}
