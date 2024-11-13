@@ -106,7 +106,7 @@ int main() {
     		continue;
     	}
 
-    	printf("..%s.. - ..%p.. - ..%p..", line, &cmd, &offset);
+    	// printf("..%s.. - ..%p.. - ..%p..", line, &cmd, &offset);
 
     	argv[0] = cmd;
     	int argc = 1;
