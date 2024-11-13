@@ -73,8 +73,6 @@ int spawn(char *argv[]) {
 		return -1;
 	}
 
-	free(attr);
-
 	return 0;
 }
 
