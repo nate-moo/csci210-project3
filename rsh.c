@@ -51,7 +51,7 @@ int isAllowed(const char*cmd, char** cmdline, int* offset) {
 
 int spawn(char *argv[]) {
 
-	// printf("argv: ..%s.. - ..%s.. - ..%s..", argv[0], argv[1], argv[2]);
+	// printf("argv: ..%s.. - ..%s.. - ..%s.. - ..%s.. - ..%s..", argv[0], argv[1], argv[2], argv[3], argv[4]);
 
 	pid_t pid;
 	// char *argv[] = {"echo", "Hello from the spawned process!", NULL};
@@ -100,11 +100,28 @@ int main() {
 
     	int offset = 0;
     	char* cmd = malloc(sizeof(char) * 256);
-    	char* argv[4] = {
-    		malloc(sizeof(char) * 256/4),
-    		malloc(sizeof(char) * 256/4),
-    		malloc(sizeof(char) * 256/4),
-    		malloc(sizeof(char) * 256/4),
+    	char* argv[21] = {
+    		malloc(sizeof(char) * 256/20),
+    		malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+    		malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
+			malloc(sizeof(char) * 256/20),
     	};
 
     	if (isAllowed(line, &cmd, &offset) == 0) {
@@ -129,6 +146,7 @@ int main() {
 			    	argv[argc][j] = '\0';
 			    	previousOffset = previousOffset + j + 1;
 			    	argc++;
+			    	j = -1;
 			    }
 		    	j++;
 		    }
