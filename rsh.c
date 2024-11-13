@@ -98,29 +98,7 @@ int main() {
 
     	int offset = 0;
     	char* cmd = malloc(sizeof(char) * 256);
-    	char* argv[21] = {
-    		malloc(sizeof(char) * 256/20),
-    		malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-    		malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-			malloc(sizeof(char) * 256/20),
-    	};
+    	char* argv[21];
 
     	if (isAllowed(line, &cmd, &offset) == 0) {
     		printf("NOT ALLOWED!\n");
