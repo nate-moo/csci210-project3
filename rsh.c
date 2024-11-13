@@ -102,9 +102,11 @@ int main() {
 
     	if (isAllowed(line, &cmd, &offset) == 0) {
     		printf("NOT ALLOWED!\n");
-    		printf("..%s.. - ..%p.. - ..%p..", line, &cmd, &offset);
+
     		continue;
     	}
+
+    	printf("..%s.. - ..%p.. - ..%p..", line, &cmd, &offset);
 
     	argv[0] = cmd;
     	int argc = 1;
