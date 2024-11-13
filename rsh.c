@@ -67,7 +67,7 @@ int spawn(char *argv[]) {
 		return -1;
 	}
 
-	printf("PID: %d", pid);
+	// printf("PID: %d", pid);
 
 	// Wait for the spawned process to terminate
 	if (waitpid(pid, &status, 0) == -1) {
@@ -146,41 +146,42 @@ int main() {
 		// Use the example provided in myspawn.c
 
 //char *allowed[N] = {"cp","touch","mkdir","ls","pwd","cat","grep","chmod","diff","cd","exit","help"};
+    	argv[argc] = NULL;
 
     	if (strcmp(cmd, "cp") == 0) {
     		if (argc == 3) {
-    			argv[argc] = NULL;
+    			// argv[argc] = NULL;
     			spawn(argv);
     		} else {
     			printf("Too many args");
     		}
 
     	}
-    	if (strcmp(line, "touch") == 0) {
-			// spawn(argv);
+    	if (strcmp(cmd, "touch") == 0) {
+			spawn(argv);
     	}
-    	if (strcmp(line, "mkdir") == 0) {
-    		// spawn(argv);
+    	if (strcmp(cmd, "mkdir") == 0) {
+    		spawn(argv);
     	}
     	if (strcmp(cmd, "ls") == 0) {
-    		argv[argc] = NULL;
+    		// argv[argc] = NULL;
     		spawn(argv);
     	}
     	if (strcmp(cmd, "pwd") == 0) {
-    		argv[argc] = NULL;
+    		// argv[argc] = NULL;
     		spawn(argv);
     	}
-    	if (strcmp(line, "cat") == 0) {
-    		// spawn(argv);
+    	if (strcmp(cmd, "cat") == 0) {
+    		spawn(argv);
     	}
-    	if (strcmp(line, "grep") == 0) {
-    		// spawn(argv);
+    	if (strcmp(cmd, "grep") == 0) {
+    		spawn(argv);
     	}
-    	if (strcmp(line, "chmod") == 0) {
-    		// spawn(argv);
+    	if (strcmp(cmd, "chmod") == 0) {
+    		spawn(argv);
     	}
-    	if (strcmp(line, "diff") == 0) {
-    		// spawn(argv);
+    	if (strcmp(cmd, "diff") == 0) {
+    		spawn(argv);
     	}
     	if (strcmp(cmd, "cd") == 0) {
     		if (argc > 2) {
