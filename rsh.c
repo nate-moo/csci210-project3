@@ -11,12 +11,12 @@ extern char **environ;
 
 char *allowed[N] = {"cp","touch","mkdir","ls","pwd","cat","grep","chmod","diff","cd","exit","help"};
 
-int isAllowed(const char*cmd, char** cmdline, int* offset) {
+int isAllowed(char*cmd, char** cmdline, int* offset) {
 	// TODO
 	// return 1 if cmd is one of the allowed commands
 	// return 0 otherwise
 
-	char* copy = memcpy(cmd, &cmd[0], 256);
+	// char* copy = memcpy(cmd, &cmd[0], 256);
 
 	int done = 0;
 
@@ -30,11 +30,11 @@ int isAllowed(const char*cmd, char** cmdline, int* offset) {
 			}
 		}
 	} else {
-		copy[strlen(cmd) - 1] = '\0';
+		cmd[strlen(cmd) - 1] = '\0';
 	}
 
 	if (done != 1) {
-		memcpy(*cmdline, &copy[0], strlen(cmd));
+		memcpy(*cmdline, &cmd[0], strlen(cmd));
 		*offset = -1;
 	}
 
@@ -72,6 +72,8 @@ int spawn(char *argv[]) {
 		perror("waitpid failed");
 		return -1;
 	}
+
+	free(attr);
 
 	return 0;
 }
@@ -130,9 +132,7 @@ int main() {
     	argv[0] = cmd;
     	int argc = 1;
 
-    	if (offset == -1) {
-    		printf("");
-    	} else {
+    	if (offset != -1) {
 
     		int j = 0;
     		// offset++;
