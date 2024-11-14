@@ -28,9 +28,13 @@ int isAllowed(char*cmd, char** cmdline, int* offset) {
 				*cmdline[i] = '\0';
 				*offset = i + 1;
 				break;
+			} else {
+
 			}
 		}
 	} else {
+		memcpy(*cmdline, &cmd[0], strlen(cmd));
+		(*cmdline)[strlen(cmd)] = '\0';
 		cmd[strlen(cmd) - 1] = '\0';
 	}
 
@@ -42,6 +46,7 @@ int isAllowed(char*cmd, char** cmdline, int* offset) {
 
 	if (done != 1) {
 		memcpy(*cmdline, &cmd[0], strlen(cmd));
+		(*cmdline)[strlen(cmd)] = '\0';
 		*offset = -1;
 	}
 
