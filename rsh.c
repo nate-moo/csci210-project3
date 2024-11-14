@@ -25,7 +25,7 @@ int isAllowed(char*cmd, char** cmdline, int* offset) {
 			if (cmd[i] == ' ') {
 				done = 1;
 				memcpy(*cmdline, &cmd[0], i);
-				*cmdline[i] = '\0';
+				(*cmdline)[i] = '\0';
 				*offset = i + 1;
 				break;
 			} else {
